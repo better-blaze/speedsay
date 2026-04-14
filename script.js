@@ -115,20 +115,27 @@ function startGame() {
 }
 
 // [수정/추가] 엔터키 이벤트 리스너
+// 페이지가 로드되자마자 키보드 입력을 감지할 수 있도록 설정
+window.focus(); 
+
 window.addEventListener('keydown', (event) => {
-    // 1. 엔터키(Enter)가 눌렸는지 확인
+    // 엔터키인지 확인
     if (event.key === 'Enter') {
-        
-        // 2. 게임 시작 전이라면 (시작 버튼이 보이는 상태) 게임 시작
-        if (startBtn.style.display !== 'none') {
+        // 엔터키의 기본 동작(스크롤 등) 방지
+        event.preventDefault();
+
+        // 1. 결과 화면이 보이고 있다면 (게임 종료 상태) -> 다시 시작
+        if (resultScreen.style.display === 'block') {
+            location.reload();
+        }
+        // 2. 시작 버튼이 보이고 있다면 (게임 시작 전) -> 시작 버튼 클릭
+        else if (startBtn.style.display !== 'none') {
             startBtn.click();
         } 
-        // 3. 게임 중이라면 (Next 버튼이 보이는 상태) 다음 문제로
+        // 3. Next 버튼이 보이고 있다면 (게임 중) -> 다음 문제
         else if (nextBtn.style.display !== 'none') {
             currentQuestion++;
             showQuestion();
         }
     }
-});
-
-/* ... showQuestion, endGame 함수 등 기존 코드 ... */
+}, true); // 'true'를 추가하여 이벤트 캡처링 단계에서 더 확실히 잡아냅니다.
