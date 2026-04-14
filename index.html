@@ -17,11 +17,17 @@
             
             <img id="game-image" src="" alt="Quiz Image" style="display: none;">
             
-            <div id="result-screen" style="display: none;">
-                <h2>기록</h2>
-                <p id="final-time"></p>
-                <button onclick="location.reload()" class="restart-btn">다시 시작</button>
-            </div>
+           <div id="result-screen" style="display: none;">
+    <h2>기록</h2>
+    <p id="final-time"></p>
+    
+    <div id="leaderboard">
+        <h3>🏆 10초 이내 명예의 전당</h3>
+        <ul id="record-list"></ul>
+    </div>
+
+    <button onclick="location.reload()" class="restart-btn">다시 시작</button>
+</div>
         </div>
 
         <div id="control-area">
