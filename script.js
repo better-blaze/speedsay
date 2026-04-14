@@ -133,9 +133,13 @@ window.addEventListener('keydown', (event) => {
     }
 }, true);
 
+// 기록 초기화 함수
 function clearRanking() {
-    if (confirm("정말로 모든 기록을 삭제하시겠습니까?")) {
+    if (confirm("저장된 모든 명예의 전당 기록을 삭제할까요?")) {
         localStorage.removeItem('webGameRecords');
-        location.reload(); // 화면 갱신
+        // 기록판 UI 바로 비우기
+        const recordListEl = document.getElementById('record-list');
+        if (recordListEl) recordListEl.innerHTML = '';
+        alert("기록이 초기화되었습니다.");
     }
 }
