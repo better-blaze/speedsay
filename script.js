@@ -103,3 +103,32 @@ function endGame() {
     // 시간을 소수점 둘째 자리까지 크게 표시
     finalTimeEl.innerText = `${finalTime.toFixed(2)}s`;
 }
+/* ... 기존 코드 생략 ... */
+
+// 3. 게임 시작 함수 내부에 추가하거나 하단에 독립적으로 추가
+function startGame() {
+    gameImg.style.display = 'block';
+    nextBtn.style.display = 'inline-block';
+    
+    startTime = Date.now();
+    showQuestion();
+}
+
+// [수정/추가] 엔터키 이벤트 리스너
+window.addEventListener('keydown', (event) => {
+    // 1. 엔터키(Enter)가 눌렸는지 확인
+    if (event.key === 'Enter') {
+        
+        // 2. 게임 시작 전이라면 (시작 버튼이 보이는 상태) 게임 시작
+        if (startBtn.style.display !== 'none') {
+            startBtn.click();
+        } 
+        // 3. 게임 중이라면 (Next 버튼이 보이는 상태) 다음 문제로
+        else if (nextBtn.style.display !== 'none') {
+            currentQuestion++;
+            showQuestion();
+        }
+    }
+});
+
+/* ... showQuestion, endGame 함수 등 기존 코드 ... */
