@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 이미지 퀴즈</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="info-panel">
+            <span id="question-number">준비하세요!</span>
+            </div>
+
+        <div id="display-area">
+            <div id="countdown"></div>
+            
+            <img id="game-image" src="" alt="Quiz Image" style="display: none;">
+            
+            <div id="result-screen" style="display: none;">
+                <h2>기록</h2>
+                <p id="final-time"></p>
+                <button onclick="location.reload()" class="restart-btn">다시 시작</button>
+            </div>
+        </div>
+
+        <div id="control-area">
+            <button id="start-btn">게임 시작</button>
+            <button id="next-btn" style="display: none;">Next ▶</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

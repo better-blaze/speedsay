@@ -1,0 +1,123 @@
+/* 기본 스타일 초기화 및 중앙 정렬 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    font-family: 'Pretendard', -apple-system, sans-serif; /* 깔끔한 폰트 권장 */
+}
+
+#game-container {
+    text-align: center;
+    /* 이전보다 폭을 넓힘 */
+    width: 90%;
+    max-width: 1000px; 
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#info-panel {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#display-area {
+    width: 100%;
+    /* 이미지 높이를 크게 키움 (필요시 조정) */
+    height: 70vh; /* 뷰포트 높이의 70% */
+    min-height: 400px;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden; /* 이미지가 튀어나가지 않도록 */
+    background-color: #fafafa;
+}
+
+#game-image {
+    /* 이미지가 영역에 꽉 차도록 설정 */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* 비율 유지하며 영역 안에 맞춤 */
+}
+
+#countdown {
+    font-size: 8rem; /* 더 크게 */
+    font-weight: 800;
+    color: #ff4757;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 결과 화면 스타일 - 극적인 연출 */
+#result-screen {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#result-screen h2 {
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#final-time {
+    /* *** 최종 시간 글씨 크기 *** */
+    font-size: 7rem; 
+    font-weight: 900;
+    color: #2ed573; /* 녹색 계열 */
+    margin: 20px 0;
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+
+/* 버튼 스타일 업데이트 */
+button {
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: #0077e6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#next-btn {
+    background-color: #2ed573;
+}
+#next-btn:hover {
+    background-color: #26af61;
+}
+
+.restart-btn {
+    margin-top: 20px;
+    background-color: #57606f;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
