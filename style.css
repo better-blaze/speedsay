@@ -63,6 +63,9 @@ body, html {
 /* 결과 화면 스타일 - 극적인 연출 */
 #result-screen {
     animation: fadeIn 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #result-screen h2 {
@@ -149,4 +152,18 @@ button:active {
     justify-content: space-between;
     font-family: monospace;
     font-size: 1.1rem;
+}
+/* 초기화 버튼 스타일 */
+.clear-btn {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    background-color: #ff4757; /* 붉은색 계열 */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.clear-btn:hover {
+    background-color: #ff6b81;
+    opacity: 1;
 }
