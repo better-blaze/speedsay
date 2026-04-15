@@ -123,17 +123,22 @@ function endGame() {
 }
 
 function saveAndShowRecords(currentTime) {
+    // 1. 기존 기록 불러오기
     let records = JSON.parse(localStorage.getItem('webGameRecords')) || [];
 
-    if (currentTime <= 10) {
+    // 2. 새 기록 추가 (기존 10에서 15로 수정!)
+    if (currentTime <= 15) { // <--- 이 부분을 15로 변경
         records.push(currentTime);
     }
 
+    // 3. 기록 정렬 및 저장
     records.sort((a, b) => a - b);
     localStorage.setItem('webGameRecords', JSON.stringify(records));
 
+    // 4. 화면에 표시 (상위 5개)
+    const recordListEl = document.getElementById('record-list');
     recordListEl.innerHTML = ''; 
-    // 상위 5개만 표시
+
     records.slice(0, 5).forEach((rec, index) => {
         const li = document.createElement('li');
         li.innerHTML = `<span>${index + 1}위</span> <strong>${rec.toFixed(2)}s</strong>`;
